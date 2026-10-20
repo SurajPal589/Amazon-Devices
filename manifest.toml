@@ -1,0 +1,50 @@
+schema-version = 1
+
+[package]
+id = "com.amazon.devices.kiosk"
+title = "Amazon Devices Signage Kiosk"
+version = "1.0.0"
+icon = "@image/app_icon.png"
+
+[os.version]
+min = "1.2"
+target = "1.2"
+
+[[components.interactive]]
+id = "com.amazon.devices.kiosk.main"
+title = "Signage Kiosk"
+
+[wants]
+# Web renderer service for web content / embedded widgets
+[[wants.service]]
+id = "com.amazon.webview.renderer_service"
+
+# Keyboard input for on-screen typing & admin modal
+[[wants.service]]
+id = "com.amazon.inputmethod.service"
+
+# Video and audio streaming services for media canvas playback
+[[wants.service]]
+id = "com.amazon.media.server"
+
+[[wants.service]]
+id = "com.amazon.audio.stream"
+
+[[wants.service]]
+id = "com.amazon.audio.control"
+
+[[wants.service]]
+id = "com.amazon.mediametrics.service"
+
+# Universal Closed Captioning service
+[[wants.service]]
+id = "com.amazon.kepler.ucc.publisher"
+
+[needs]
+# Audio playback privilege
+[[needs.privilege]]
+id = "com.amazon.system.audio"
+
+# Vega OS version module (matches target 1.2)
+[[needs.module]]
+id = "/com.amazon.vega.os@IVega_1_2"
